@@ -1,0 +1,6 @@
+C:\Users\Korbin\Documents\AI Projects\Phase1\Phase1\bin\Debug\Phase1.exe.config
+C:\Users\Korbin\Documents\AI Projects\Phase1\Phase1\bin\Debug\Phase1.exe
+C:\Users\Korbin\Documents\AI Projects\Phase1\Phase1\bin\Debug\Phase1.pdb
+C:\Users\Korbin\Documents\AI Projects\Phase1\Phase1\obj\Debug\Phase1.csprojResolveAssemblyReference.cache
+C:\Users\Korbin\Documents\AI Projects\Phase1\Phase1\obj\Debug\Phase1.exe
+C:\Users\Korbin\Documents\AI Projects\Phase1\Phase1\obj\Debug\Phase1.pdb
