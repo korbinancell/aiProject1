@@ -28,7 +28,6 @@ namespace Phase1
             {
                 var hold = line.Split(',');
                 
-                
                 item temp;
 
                 temp.name = hold[0];
@@ -97,8 +96,8 @@ namespace Phase1
 
             int descValMax = phase.greedySol(capacity, knapsack.OrderByDescending(x => x.value).ToList());
             int ascCostMax = phase.greedySol(capacity, knapsack.OrderBy(x => x.cost).ToList());
-            int descRatioMax = phase.greedySol(capacity, knapsack.OrderByDescending(x => x.cost/x.value).ToList());
-            double fracMax = phase.partialKnapsack(capacity, knapsack.OrderByDescending(x => x.cost / x.value).ToList());
+            int descRatioMax = phase.greedySol(capacity, knapsack.OrderByDescending(x => x.value/x.cost).ToList());
+            double fracMax = phase.partialKnapsack(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
 
             Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
 
