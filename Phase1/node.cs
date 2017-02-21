@@ -8,8 +8,32 @@ namespace Phase1
 {
     class node
     {
-        public int currentItem { get; set; }
-        public node leftChild { get; set; }
-        public node rightChild { get; set; }
+        public string name { get; set; }
+        public int itemNum { get; set; }
+        public decimal value { get; set; }
+        public decimal cost { get; set; }
+
+        public string currentKnapsack { get; set; }
+        public decimal currentCost { get; set; }
+        public decimal currentValue { get; set; }
+
+        public node(string nm, int inum, decimal cst, decimal val)
+        {
+            name = nm;
+            itemNum = inum;
+            value = val;
+            cost = cst;
+
+            currentKnapsack = "";
+            currentCost = 0;
+            currentValue = 0;
+        }
+
+        public void setCurrents (string crK, int crC, int crV)
+        {
+            currentKnapsack = crK;
+            currentCost = crC;
+            currentValue = crV;
+        }
     }
 }
