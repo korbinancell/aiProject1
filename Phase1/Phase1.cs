@@ -45,7 +45,7 @@ namespace Phase1
             return totalVal;
         }
 
-        public void greedySolutions (int capacity, List<ReadCSV.item> knapsack)
+        public Tuple<decimal, decimal, decimal, decimal> greedySolutions (int capacity, List<ReadCSV.item> knapsack)
         {
             foreach (var thing in knapsack)
             {
@@ -57,7 +57,19 @@ namespace Phase1
             var descRatioMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
             var fracMax = partialKnapsack(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
 
-            Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
+            //Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
+            return Tuple.Create(descValMax, ascCostMax, descRatioMax, fracMax);
+        }
+
+        public decimal minimumSolution(int capacity, List<ReadCSV.item> knapsack)
+        {
+            var descValMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value).ToList());
+            var ascCostMax = greedySol(capacity, knapsack.OrderBy(x => x.cost).ToList());
+            var descRatioMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
+            var fracMax = partialKnapsack(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
+
+            //Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
+            return Math.Min(Math.Min(descValMax, ascCostMax), Math.Min( descRatioMax, fracMax));
         }
     }
 }
