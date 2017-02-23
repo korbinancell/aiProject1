@@ -35,14 +35,15 @@ namespace Phase1
             return Tuple.Create(totalVal, totalCost, items);
         }
 
-        private Tuple<decimal, decimal, string> partialKnapsack(int capacity, List<ReadCSV.item> knapsack)
+        private Tuple<decimal, decimal, string, bool> partialKnapsack(int capacity, List<ReadCSV.item> knapsack)
         {
             decimal totalCost = 0, totalVal = 0;
+            bool flag = false;
             List<ReadCSV.item> picked = new List<ReadCSV.item>();
 
             foreach (var thing in knapsack)
             {
-                if ((totalCost + thing.cost) <= capacity)
+                if ((totalCost + thing.cost) < capacity)
                 {
                     totalCost += thing.cost;
                     totalVal += thing.value;
@@ -51,23 +52,34 @@ namespace Phase1
 
                 else
                 {
-                    totalVal += (thing.value * (capacity - totalCost) / thing.cost);
+                    if (totalCost == capacity)
+                    {
+                        picked.Add(thing);
+                        flag = true;
+                    }
+                    else
+                    {
+                        totalVal += (thing.value * (capacity - totalCost) / thing.cost);
 
-                    ReadCSV.item partial;
-                    partial.name = thing.name + " partial";
-                    partial.cost = capacity - totalCost;
-                    partial.value = (thing.value * (capacity - totalCost) / thing.cost);
-                    picked.Add(partial);
+                        ReadCSV.item partial;
+                        partial.name = thing.name + " partial";
+                        partial.cost = capacity - totalCost;
+                        partial.value = (thing.value * (capacity - totalCost) / thing.cost);
+                        picked.Add(partial);
+                    }
                     break;
                 }
             }
+
+            if (totalCost < capacity)
+                flag = true;
 
             string items = "";
             picked.Sort((x, y) => x.name.CompareTo(y.name));
             foreach (var item in picked)
                 items += item.ToString() + "\n";
 
-            return Tuple.Create(totalVal, Convert.ToDecimal(capacity), items);
+            return Tuple.Create(totalVal, Convert.ToDecimal(capacity), items, flag);
         }
 
         public Tuple<decimal, decimal, decimal, decimal> greedySolutions(int capacity, List<ReadCSV.item> knapsack)
@@ -110,7 +122,7 @@ namespace Phase1
             return descRatioMax.Item1 > test1.Item1 ? descRatioMax : test1;
         }
 
-        public Tuple<decimal, decimal, string> maximumSolution(int capacity, List<ReadCSV.item> knapsack)
+        public Tuple<decimal, decimal, string, bool> maximumSolution(int capacity, List<ReadCSV.item> knapsack)
         {
             return partialKnapsack(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
         }
