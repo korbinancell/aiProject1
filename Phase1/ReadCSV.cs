@@ -13,6 +13,11 @@ namespace Phase1
             public string name;
             public decimal cost;
             public decimal value;
+
+            public override string ToString()
+            {
+                return name + "," + Convert.ToString(cost) + "," + Convert.ToString(value);
+            }
         }
 
         public Tuple<int, List<item>> readCSV(string name)

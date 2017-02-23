@@ -1,0 +1,22 @@
+k05.csv
+Capacity: 13
+Best Greedy Min: 16 13
+a,3,6
+b,5,3
+c,1,2
+e,4,5
+
+Best Greedy Max: 18 13
+a,3,6
+c,1,2
+d partial,5,5
+e,4,5
+
+Optimal Solution: 16 13
+a,3,6
+b,5,3
+c,1,2
+e,4,5
+
+Dumb Search: 00:00:00.0015221
+Less Dumb Time: 00:00:00.0019023

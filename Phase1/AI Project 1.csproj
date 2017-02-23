@@ -48,6 +48,7 @@
     <Compile Include="Phase1.cs" />
     <Compile Include="Phase2.cs" />
     <Compile Include="Phase3.cs" />
+    <Compile Include="Phase4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadCSV.cs" />
   </ItemGroup>

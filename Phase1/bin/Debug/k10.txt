@@ -1,0 +1,32 @@
+k10.csv
+Capacity: 30
+Best Greedy Min: 40 26
+a,3,6
+c,4,4
+e,4,5
+f,1,2
+g,6,8
+i,3,6
+j,5,9
+
+Best Greedy Max: 43 30
+a,3,6
+c,4,4
+e,4,5
+f,1,2
+g,6,8
+h partial,4,3
+i,3,6
+j,5,9
+
+Optimal Solution: 42 30
+a,3,6
+e,4,5
+f,1,2
+g,6,8
+h,8,6
+i,3,6
+j,5,9
+
+Dumb Search: 00:00:00.0039827
+Less Dumb Time: 00:00:00.0870143

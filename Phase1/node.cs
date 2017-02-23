@@ -35,5 +35,10 @@ namespace Phase1
             currentCost = crC;
             currentValue = crV;
         }
+
+        public override string ToString()
+        {
+            return name + "," + cost + "," + value + "\n";
+        }
     }
 }
