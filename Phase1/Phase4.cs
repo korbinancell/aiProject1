@@ -24,9 +24,7 @@ namespace Phase1
             var dumbSearch = phase2.exhaustiveSolution(capacity, knapsack);
             var lessDumbSearch = phase3.optimized_1_Solution(capacity, knapsack, minSol2.Item1);
             var leastDumbSearch = phase5.optimized_2_Solution(capacity, knapsack.OrderByDescending(x => x.cost).ToList(), minSol2.Item1);
-            Console.WriteLine(Convert.ToString(leastDumbSearch.Item4));
             var leastDumbSearch2 = phase5.optimized_2_Solution(capacity, knapsack.OrderByDescending(x => x.value).ToList(), minSol2.Item1);
-            Console.WriteLine(Convert.ToString(leastDumbSearch2.Item4));
 
             var txt = System.IO.Path.GetFileNameWithoutExtension(@filename);
             txt += ".txt";

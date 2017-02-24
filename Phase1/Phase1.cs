@@ -85,19 +85,11 @@ namespace Phase1
 
         public Tuple<decimal, decimal, decimal, decimal> greedySolutions(int capacity, List<ReadCSV.item> knapsack)
         {
-            /*
-            foreach (var thing in knapsack)
-            {
-                Console.WriteLine(thing.name + " " + thing.cost + " " + thing.value);
-            }
-            */
-
             var descValMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value).ToList());
             var ascCostMax = greedySol(capacity, knapsack.OrderBy(x => x.cost).ToList());
             var descRatioMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
             var fracMax = partialKnapsack(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
 
-            //Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
             return Tuple.Create(descValMax.Item1, ascCostMax.Item1, descRatioMax.Item1, fracMax.Item1);
         }
 
@@ -107,7 +99,6 @@ namespace Phase1
             var ascCostMax = greedySol(capacity, knapsack.OrderBy(x => x.cost).ToList());
             var descRatioMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
 
-            //Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
             var test1 = descValMax.Item1 < ascCostMax.Item1 ? descValMax : ascCostMax;
             return descRatioMax.Item1 < test1.Item1 ? descRatioMax : test1;
         }
@@ -118,7 +109,6 @@ namespace Phase1
             var ascCostMax = greedySol(capacity, knapsack.OrderBy(x => x.cost).ToList());
             var descRatioMax = greedySol(capacity, knapsack.OrderByDescending(x => x.value / x.cost).ToList());
 
-            //Console.WriteLine("Highest Values: {0}\nLowest Cost: {1}\nHighest Ratio: {2}\nPartial Knapsack: {3}", descValMax, ascCostMax, descValMax, fracMax);
             var test1 = descValMax.Item1 > ascCostMax.Item1 ? descValMax : ascCostMax;
             return descRatioMax.Item1 > test1.Item1 ? descRatioMax : test1;
         }

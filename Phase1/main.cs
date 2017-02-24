@@ -11,8 +11,10 @@ namespace Phase1
         static void Main(string[] args)
         {
             int capacity;
-            string filename = "F1.csv";
             List<ReadCSV.item> knapsack;
+
+            Console.Write("Enter .csv to read: ");
+            string filename = Console.ReadLine();
 
             Phase1 phase1 = new Phase1();
             Phase2 phase2 = new Phase2();

@@ -28,6 +28,7 @@ h,8,6
 i,3,6
 j,5,9
 
-Dumb Search: 00:00:00.0028351
-Less Dumb Time: 00:00:00.0019497
-Least Dumb Time: 00:00:00.0017716
+Dumb Search: 00:00:00.0024088
+Less Dumb Time: 00:00:00.0018202
+Least Dumb Time By Ord by Cost : 00:00:00.0017882
+Least Dumb Time By Ord by Value: 00:00:00.0002269
