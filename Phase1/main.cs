@@ -11,7 +11,7 @@ namespace Phase1
         static void Main(string[] args)
         {
             int capacity;
-            string filename = "k05.csv";
+            string filename = "F1.csv";
             List<ReadCSV.item> knapsack;
 
             Phase1 phase1 = new Phase1();

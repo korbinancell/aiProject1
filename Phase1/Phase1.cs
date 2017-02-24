@@ -60,6 +60,7 @@ namespace Phase1
                     else
                     {
                         totalVal += (thing.value * (capacity - totalCost) / thing.cost);
+                        totalCost = capacity;
 
                         ReadCSV.item partial;
                         partial.name = thing.name + " partial";

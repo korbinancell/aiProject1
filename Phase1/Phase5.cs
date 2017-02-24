@@ -10,14 +10,12 @@ namespace Phase1
         {
             if (TimeSpan.Compare(timer.Elapsed, new TimeSpan(0,10,0)) == 1)
                 return Tuple.Create(bestCost, bestVal, bestKnapsack);
+
             if (tree[currentIndex].currentCost > capacity)
                 return Tuple.Create(bestCost, bestVal, bestKnapsack);
 
             if (tree[currentIndex].currentValue + remainingValue < minimumVal)
-            {
-                Console.WriteLine(tree[currentIndex].currentValue + remainingValue + " " + minimumVal);
                 return Tuple.Create(bestCost, bestVal, bestKnapsack);
-            }
 
             if (currentIndex == tree.Length - 1 && tree[currentIndex].currentKnapsack == "")
             {
@@ -59,13 +57,8 @@ namespace Phase1
                 return Tuple.Create(bestCost, bestVal, bestKnapsack);
         }
 
-        public Tuple<decimal, decimal, string, string> optimized_1_Solution(int capacity, List<ReadCSV.item> knapsack, decimal minimumSolution)
+        public Tuple<decimal, decimal, string, string> optimized_2_Solution(int capacity, List<ReadCSV.item> knapsack, decimal minimumSolution)
         {
-            /*  
-             *  sorting cost vs value
-             *  
-             *  Cut out after 10 min
-             */
             Phase1 phase1 = new Phase1();
             Stopwatch timer = new Stopwatch();
 

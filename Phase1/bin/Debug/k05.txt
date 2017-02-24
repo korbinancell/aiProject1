@@ -18,5 +18,6 @@ b,5,3
 c,1,2
 e,4,5
 
-Dumb Search: 00:00:00.0015221
-Less Dumb Time: 00:00:00.0019023
+Dumb Search: 00:00:00.0016208
+Less Dumb Time: 00:00:00.0022481
+Least Dumb Time: 00:00:00.0000256
